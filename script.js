@@ -185,53 +185,7 @@ form.addEventListener('submit', e => {
 		showDialogMessage('press enter')
 	}
 });
-/*
-next.addEventListener('click', () => {
-	if (nextPage <= totalPages) {
-        // Remove 'current' class from all elements
-        numberPage.forEach(page => {
-            page.classList.remove('current');
-        });
 
-        // Add 'current' class to the next page element
-        numberPage[nextPage - 1].classList.add('current');
-        // Call pageCall function with nextPage
-        pageCall(nextPage);
-		
-		window.scrollTo({top: 0, behavior: 'smooth'});
-    }
-	
-})
-
-prev.addEventListener('click', () =>{
-	if(prevPage > 0){
-		numberPage.forEach(page => {
-			page.classList.remove('current');
-		});
-		numberPage[prevPage - 1].classList.add('current');
-		pageCall(prevPage);
-		window.scrollTo({top: 0, behavior: 'smooth'});
-	}
- })
- 
-
-
-numberPage.forEach(page => {
-    page.addEventListener('click', () => {
-        // Remove 'current' class from all elements
-        numberPage.forEach(page => {
-            page.classList.remove('current');
-        });
-		
-        // Add 'current' class to the clicked element
-        page.classList.add('current');
-		
-		let clickedPage = parseInt(page.textContent);
-        // Here you can perform any other pagination-related actions
-		pageCall(clickedPage)
-		window.scrollTo({top: 0, behavior: 'smooth'});
-    });
-});*/
 
 function pageGenerator(allPages, page) {
     let div = '';

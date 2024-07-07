@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="style.css">
+	<title>Saksikan Langsung || TMDB movie zone apps</title>
+</head>
+<body>
+<!--buat form search-->
+	<header>
+		<a href="#" class="logo" onclick="reloadWeb()">Movie Zone</a>
+		<form id="form">
+			<input type="text" placeholder="cari film" id="search" class="search">
+		<div id="dialog" class="dialog">
+			<span id="dialogMessage">press enter</span>
+		</div>
+		</form>
+	</header>
+<!--buat kolom foto-->
+	<div>
+		<h2>Genre Movie</h2>
+		<p>(select our genre, for favorites choice)</p>
+	</div>
+	<div id="tags">
+		<div class="tags">Action</div>
+		<div class="tags">Adventure</div>
+		<div class="tags">Animation</div>
+		<div class="tags">Comedy</div>
+		<div class="tags">Crime</div>
+	</div>
+	<div class="searchResult"></div>
+	<main id="main"></main>
+	<div class="pagination">
+		<!--<div class="page" id="prev">previous</div>
+			<div class="numberPage current">1</div>
+			<div class="numberPage">2</div>
+			<div class="numberPage">3</div>
+			<div class="numberPage">4</div>
+			<div class="numberPage">5</div>
+		<div class="page" id="next" >next</div>-->
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>

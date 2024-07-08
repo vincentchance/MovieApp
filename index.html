@@ -1,9 +1,12 @@
-<!DOCTYPE HTML>
+!DOCTYPE HTML>
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+	integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="style.css">
 	<title>Saksikan Langsung || TMDB movie zone apps</title>
 </head>
@@ -12,11 +15,10 @@
 	<header>
 		<a href="#" class="logo" onclick="reloadWeb()">Movie Zone</a>
 		<form id="form">
-			<input type="text" placeholder="cari film" id="search" class="search">
-			<button type="submit" class="searchButton">&#128270;</button>
-		<div id="dialog" class="dialog">
-			<span id="dialogMessage">press enter</span>
-		</div>
+			<div class="search-container">
+				<input type="text" placeholder="cari film" class="search" id="search">
+				<button class="searchButton fa-solid fa-magnifying-glass" id="searchButton"></button>
+			</div>
 		</form>
 	</header>
 <!--buat kolom foto-->

@@ -117,6 +117,7 @@ function AmbilFilm(url){
 			pageGenerator(totalPages, currentPage)
 			} else {
 			main.innerHTML = `<h1 class="no-result">Result Not Found</h1>`;
+			pageGenerator(0, 0);
 			}
 		})
 		.catch(err => { 
@@ -154,14 +155,14 @@ function cariColor(vote){
 	return (vote > 8) ? 'green' : (vote > 5) ? 'orange' : 'red' ;
 }
 
-searchButton.addEventListener('click', (e) => {
+searchButton.addEventListener('click', async(e) => {
 	e.preventDefault();
-	search()
+	await search()
 })
 
-form.addEventListener('keypress', e => {
+form.addEventListener('keypress', async(e) => {
 	if( e.key === 'Enter'){
-		search()
+		await search()
 	}
 });
 
@@ -182,29 +183,32 @@ function search(){
 
 function pageGenerator(allPages, page) {
     let div = '';
+	
+    if(allPages && page === 0){
+	div += '';
+    }else {
+	let beforePages = page - 1;
+	let afterPages = page + 1;
+	let liActive;
 
-    let beforePages = page - 1;
-    let afterPages = page + 1;
-    let liActive;
+	if (page > 1) {
+	    div += `<div class="page" id="prev">previous</div>`;
+	}
 
-    if (page > 1) {
-        div += `<div class="page" id="prev">previous</div>`;
-    }
-
-    for (let pageLength = beforePages; pageLength <= afterPages; pageLength++) {
-        if (pageLength > allPages || pageLength < 1) {
-            continue;
-        }
+	for (let pageLength = beforePages; pageLength <= afterPages; pageLength++) {
+	    if (pageLength > allPages || pageLength < 1) {
+		continue;
+	}
         
-        page === pageLength ? liActive = 'current' : liActive = '';
+		page === pageLength ? liActive = 'current' : liActive = '';
 
-        div += `<div class="numberPage ${liActive}">${pageLength}</div>`;
+		div += `<div class="numberPage ${liActive}">${pageLength}</div>`;
+	}
+
+	 if (page < allPages) {
+       	        div += `<div class="page" id="next">next</div>`;
+	}
     }
-
-    if (page < allPages) {
-        div += `<div class="page" id="next">next</div>`;
-    }
-
     // Assuming 'pagination' is the container where this pagination is inserted
     const pagination = document.querySelector('.pagination');
     if (pagination) {
@@ -213,16 +217,16 @@ function pageGenerator(allPages, page) {
         // Adding event listeners after setting innerHTML
         const prev = pagination.querySelector('#prev');
         if (prev) {
-            prev.addEventListener('click', () => {
-                pageCall(page - 1); // Call pageCall function with previous page number
+            prev.addEventListener('click', async () => {
+                await pageCall(page - 1); // Call pageCall function with previous page number
 				window.scrollTo({top: 0, behavior: 'smooth'})
             });
         }
 
         const next = pagination.querySelector('#next');
         if (next) {
-            next.addEventListener('click', () => {
-                pageCall(page + 1); // Call pageCall function with next page number
+            next.addEventListener('click', async () => {
+                await pageCall(page + 1); // Call pageCall function with next page number
 				window.scrollTo({top: 0, behavior: 'smooth'})
             });
         }
@@ -230,8 +234,8 @@ function pageGenerator(allPages, page) {
         const numberPages = pagination.querySelectorAll('.numberPage');
         if (numberPages) {
             numberPages.forEach(button => {
-                button.addEventListener('click', () => {
-                    pageCall(parseInt(button.textContent)); // Call pageCall function with clicked page number
+                button.addEventListener('click', async () => {
+                   await pageCall(parseInt(button.textContent)); // Call pageCall function with clicked page number
 					window.scrollTo({top: 0, behavior: 'smooth'})
                 });
             });
@@ -244,7 +248,6 @@ function pageCall(page){
 	let urlSplit = lastUrl.split('?');
 	let queryParams = urlSplit[1].split('&');
 	let key = queryParams[queryParams.length - 1].split('=');
-//jika key bagian terakhir tak ada page berarti 
 	if(key[0] != 'page'){
 		url = lastUrl + '&page=' + page;
 		AmbilFilm(url);
@@ -269,7 +272,7 @@ function aturGenre(){
 		t.id = genre.id;
 		t.innerText = genre.name;
 		//jika tombol tag diklik maka
-		t.addEventListener( 'click' , () =>{
+		t.addEventListener( 'click' , async() =>{
 			searchResult.innerHTML = '';
 			if(genreTerikat.length == 0){
 				genreTerikat.push(genre.id)
@@ -284,8 +287,8 @@ function aturGenre(){
 					genreTerikat.push(genre.id);
 				}
 			}
-			pageGenerator(totalPages, currentPage)
-			AmbilFilm(API_URL + '&with_genres='+ encodeURIComponent(genreTerikat.join(',')))
+			await pageGenerator(totalPages, currentPage)
+			await AmbilFilm(API_URL + '&with_genres='+ encodeURIComponent(genreTerikat.join(',')))
 			penandaPilihan()
 		})
 			 

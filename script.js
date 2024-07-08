@@ -84,11 +84,12 @@ const genres = [
 
 const main = document.getElementById('main');
 const form = document.getElementById('form');
-const search = document.getElementById('search');
+const searchButton = document.querySelector('.searchButton');
+
 const tags1 = document.getElementById('tags');
 const searchResult = document.querySelector('.searchResult');
-const dialog = document.getElementById('dialog');
-const dialogMessage = document.getElementById('dialogMessage');
+
+const searchClass = document.querySelector('.search');
 
 
 let currentPage = 1;
@@ -99,13 +100,6 @@ function reloadWeb(){
 	location.reload();
 }
 
-function showDialogMessage() {
-    dialog.style.display = 'block';
-}
-
-function closeDialog() {
-	dialog.style.display = 'none';
-}
 
 AmbilFilm(API_URL);
 
@@ -160,32 +154,31 @@ function cariColor(vote){
 	return (vote > 8) ? 'green' : (vote > 5) ? 'orange' : 'red' ;
 }
 
-form.addEventListener('click', () => {
-	showDialogMessage() 
-})
-
-tags.addEventListener('contextmenu', () => {
-	closeDialog()
-})
-
-form.addEventListener('submit', e => {
+searchButton.addEventListener('click', (e) => {
 	e.preventDefault();
+	search()
+})
+
+form.addEventListener('keypress', e => {
+	if( e.key === 'Enter'){
+		search()
+	}
+});
+
+function search(){
+	const search = document.getElementById('search');
 	const searchTerm = search.value.trim();
 	genreTerikat = []
 	aturGenre();
 	if(searchTerm){
 		AmbilFilm(searchURL + '&query=' + searchTerm);
 		searchResult.innerHTML = `<h3>Hasil pencarian untuk \'${searchTerm}\'</h3>`;
-		closeDialog()
+		
 		pageGenerator(totalPages, currentPage)
 	} else {
 		reloadWeb();  
 	}
-	if(searchTerm ==! ''){
-		showDialogMessage('press enter')
-	}
-});
-
+}
 
 function pageGenerator(allPages, page) {
     let div = '';

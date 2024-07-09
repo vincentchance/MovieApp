@@ -224,9 +224,11 @@ p {
 
 @media screen and (max-width: 400px){
 	#form {
+		display: flex;
 		flex-direction: column;
 		align-items: center;
 		padding: 10px;
+		position: relative;
 	}
 	
 	.logo {
@@ -240,23 +242,28 @@ p {
 	.search{
 		background-color: transparent;
 		border: 2px solid var(--primary-color);
-		padding: 0.5rem 1rem;
+		padding: 0.5rem 1.3rem;
 		border-radius: 50px;
 		font-size: 1rem;
 		color: #fff;
 		font-family: inherit;
+		margin-bottom: 10px;
+		position: relative;
 	}
 	
 	.searchButton{
 		display: flex;
-		align-items: center;
-		background-color: var(--secondary-color);
-		padding: 0.5rem;
-		border: 1px solid var(--primary-color);
-		border-radius: 70%;
-		cursor: pointer;
-		position: absolute;
-		top: 57px;
-		right: 65px;
+        	align-items: center;
+        	justify-content: center; /* Center the content horizontally and vertically */
+        	background-color: var(--secondary-color);
+       		width: 30px;
+        	height: 30px;
+        	border: 1px solid var(--primary-color);
+        	border-radius: 50%;
+        	cursor: pointer;
+        	position: absolute;
+        	right: 13%; /* Adjust positioning as needed */
+        	top: 65%; /* Position it vertically centered */
+        	transform: translateY(-50%); /* Adjust to vertically center */
 	}
 }

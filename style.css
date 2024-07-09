@@ -221,3 +221,42 @@ p {
 	background-color: black;
 	border-radius: 50%;
 }
+
+@media screen and (max-width: 400px){
+	#form {
+		flex-direction: column;
+		align-items: center;
+		padding: 10px;
+	}
+	
+	.logo {
+		font-size: 18pt;
+		font-weight: bold;
+		color: white;
+		text-decoration: none;
+		font-family: 'oboto', sans-serif;
+		padding: 0.5rem 0.5rem;
+	}
+	.search{
+		background-color: transparent;
+		border: 2px solid var(--primary-color);
+		padding: 0.5rem 1rem;
+		border-radius: 50px;
+		font-size: 1rem;
+		color: #fff;
+		font-family: inherit;
+	}
+	
+	.searchButton{
+		display: flex;
+		align-items: center;
+		background-color: var(--secondary-color);
+		padding: 0.5rem;
+		border: 1px solid var(--primary-color);
+		border-radius: 70%;
+		cursor: pointer;
+		position: absolute;
+		top: 57px;
+		right: 65px;
+	}
+}

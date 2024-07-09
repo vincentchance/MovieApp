@@ -17,8 +17,6 @@ body {
 }
 
 header{
-	padding: 12px;
-	
 	background-color: var(--secondary-color);
 }
 
@@ -34,7 +32,6 @@ header{
 #form {
 	display: flex;
 	justify-content: space-between;
-	padding-top: 0.2rem;
 	padding: 10px;
 	align-items: center;
 	position: relative
@@ -159,7 +156,7 @@ h2{
 	align-items: center;
 	justify-content: center;
 	background-color: #ffff4d;
-	padding: 20px 0 10px 0;
+	padding: 10px 0 10px 0;
 	margin: 0;
 	color: darkRed;
 }
@@ -169,7 +166,7 @@ p {
   align-items: center;
   justify-content: center;
   background-color: #ffff4d;
-  padding: 0 0 20px 0; /* 10px top padding, 20px bottom padding */
+  padding: 0 0 10px 0; /* 10px top padding, 20px bottom padding */
   margin: 0;
 }
 .tags{
@@ -223,11 +220,28 @@ p {
 }
 
 @media screen and (max-width: 400px){
+	h2{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #ffff4d;
+		padding: 10px 0 10px 0;
+		margin: 0;
+		color: darkRed;
+	}
+
+	p {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #ffff4d;
+		padding: 0 0 10px 0; /* 10px top padding, 20px bottom padding */
+		margin: 0;
+	}
 	#form {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding: 10px;
 		position: relative;
 	}
 	
@@ -247,7 +261,6 @@ p {
 		font-size: 1rem;
 		color: #fff;
 		font-family: inherit;
-		margin-bottom: 10px;
 		position: relative;
 	}
 	
@@ -262,18 +275,36 @@ p {
         	border-radius: 50%;
         	cursor: pointer;
         	position: absolute;
-        	right: 21%; 
-        	top: 65%; 
+        	right: 22.5%; 
+        	top: 70%; 
         	transform: translateY(-50%); 
 	}
 }
 
 @media screen and (max-width: 320px){
+	h2{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #ffff4d;
+		padding: 10px 0 10px 0;
+		margin: 0;
+		color: darkRed;
+	}
+
+	p {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #ffff4d;
+		padding: 0 0 10px 0; /* 10px top padding, 20px bottom padding */
+		margin: 0;
+	}
+	
 	#form {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding: 10px;
 		position: relative;
 	}
 	
@@ -283,7 +314,7 @@ p {
 		color: white;
 		text-decoration: none;
 		font-family: 'oboto', sans-serif;
-		padding: 0.5rem 0.5rem;
+		
 	}
 	.search{
 		background-color: transparent;
@@ -293,23 +324,22 @@ p {
 		font-size: 1rem;
 		color: #fff;
 		font-family: inherit;
-		margin-bottom: 10px;
 		position: relative;
 	}
 	
 	.searchButton{
 		display: flex;
         	align-items: center;
-        	justify-content: center; /* Center the content horizontally and vertically */
+        	justify-content: center; 
         	background-color: var(--secondary-color);
         	width: 30px;
         	height: 30px;
         	border: 1px solid var(--primary-color);
         	border-radius: 50%;
         	cursor: pointer;
-       	 	position: absolute;
-       	 	right: 13%; 
-        	top: 65%; 
+        	position: absolute;
+        	right: 16%; 
+		top: 72%;
         	transform: translateY(-50%); 
 	}
 }

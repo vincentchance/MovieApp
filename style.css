@@ -254,7 +254,7 @@ p {
 	.searchButton{
 		display: flex;
         	align-items: center;
-        	justify-content: center; /* Center the content horizontally and vertically */
+        	justify-content: center; 
         	background-color: var(--secondary-color);
        		width: 30px;
         	height: 30px;
@@ -262,8 +262,8 @@ p {
         	border-radius: 50%;
         	cursor: pointer;
         	position: absolute;
-        	right: 13%; /* Adjust positioning as needed */
-        	top: 65%; /* Position it vertically centered */
-        	transform: translateY(-50%); /* Adjust to vertically center */
+        	right: 13%; 
+        	top: 65%; 
+        	transform: translateY(-50%);
 	}
 }
